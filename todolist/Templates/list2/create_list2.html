@@ -1,0 +1,9 @@
+{%extends 'base.html'%}
+{%block content%}
+<h5><a href="../../../../../list/2">View your items</a></h5>
+{%load crispy_forms_tags%}
+<form action="" method="post" class="input-sm"> {%csrf_token%}
+    {{form|crispy}}
+    <button type="submit" class="btn btn-dark">Create</button>
+</form>
+{%endblock%}

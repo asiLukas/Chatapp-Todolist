@@ -1,0 +1,10 @@
+{%extends 'base.html'%}
+{%block title%}Delete tasks{%endblock%}
+{%block content%}
+{%load crispy_forms_tags%}
+<h2>Are you sure you want to delete '{{obj.item}}' ?</h2>
+<form method="post" action="" class="input-sm"> {%csrf_token%}
+    <a href="../../../list"><button class="btn btn-danger">DELETE</button></a>
+
+</form>
+{%endblock%}

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body{
+        background-color: rgb(10, 10, 10);
+        color: white;
+        font-family:sans-serif;
+        text-align: center
+        }
+
+        li {
+        font-size: 15px}
+
+
+
+        .nav {
+        text-align: bottom;
+        height: 50px;
+        width: 100%;
+        position:fixed;
+        z-index:1;
+        top:0;
+        left:0;
+        background-color: rgb(20, 20, 20);
+        overflow-x:hidden;
+        padding-top:10px}
+
+        a {
+        color:grey;
+        font-size:14px}
+
+        .nav a {
+        padding:4px 8px 1px 25px ;
+        text-decoration:none;
+        font-size:18px;
+        color: rgb(100, 100, 100);
+        display:block}
+
+        .nav a:hover{
+        color:white;}
+
+        .logged_in {
+        color: white;
+        padding-top: 10px;
+        position: fixed;
+        bottom: 1px;
+        right: 5px;
+        z-index: 1}
+
+        .not_logged_in {
+        color: white;
+        padding-top: 60px;
+        position: fixed;
+        up: 0;
+        right: 40%;
+        z-index: 1}
+
+
+        form {
+        text-align: center;
+        margin: 0 auto; }
+        p {
+        color: white;
+        text-align: center}
+
+        .input-sm{
+        text-align: center;
+        width: 500px;
+        display: table}
+
+        .main {
+        padding: 0px 00px}
+
+        #list-h5 {
+        color: white;
+        font-size:20px}
+
+        #long_line{
+        color: rgb(2, 5, 100)}
+
+        #chat-log{
+        background-color: rgb(20, 20, 20);
+        color: white;
+        font-family:sans-serif;
+        }
+        #chat-message-input {
+        background-color: rgb(20, 20, 20);
+        color: white;
+        font-family:sans-serif;
+        }
+
+        #room-name-input {
+        background-color: rgb(20, 20, 20);
+        color: white;
+        font-family:sans-serif;
+        }
+
+
+
+    </style>
+
+    <title>{%block title%}Something{%endblock%}</title>
+</head>
+<body>
+{%include 'navbar.html'%}
+{%if user.is_authenticated%}
+
+      <p class="logged_in">You are logged in as {{user}}</p>
+   <div id="content" name="content" class="main">
+      <div class="row justify-content-center">
+          <div class="col-8">
+               <h1 class="mt-2"></h1>
+              <br>
+              <br>
+              <br>
+               <hr class="mt-0 mb-4=">
+               {%block content%}
+               replace this
+               {%endblock%}
+           </div>
+       </div>
+   </div>
+{%else%}
+       <p class="not_logged_in">The site works only if you're logged in, you need to login <a href="../../../login/login">here</a></p>
+<br>
+<br>
+<br>
+<br>
+
+       {%block login%}
+
+       {%endblock%}
+{%endif%}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

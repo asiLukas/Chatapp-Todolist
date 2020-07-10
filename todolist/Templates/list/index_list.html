@@ -1,0 +1,21 @@
+{%extends 'base.html'%}
+{%block title%}Tasks{%endblock%}
+{%block content%}
+<h5><a href="../../../../../list/create">Create new item</a></h5>
+{%for instance in obj_list%}
+<br>
+<h5>
+    {{instance.item}}<br><a id='list-h5' href="{{instance.get_absolute_url}}"><h6>click to open detailed view</h6><br></a>
+    <h6>{%if instance.deadline == '' %}
+
+You didn't set any deadline for this task</h6>
+{%else%}
+<h6>deadline: {{instance.deadline}}</h6>
+{%endif%}
+<p id="long_line">--------------------------------------------------------</p>
+</h5>
+<br>
+
+{%endfor%}
+
+{%endblock%}

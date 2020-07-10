@@ -1,0 +1,11 @@
+{%extends 'base.html'%}
+{%block title%}Update tasks{%endblock%}
+{%block content%}
+{%load crispy_forms_tags%}
+<form method="post" action="" class="input-sm"> {%csrf_token%}
+    {{form|crispy}}
+    <a href="../../../list"><button class="btn btn-dark">Save</button></a>
+
+
+</form>
+{%endblock%}

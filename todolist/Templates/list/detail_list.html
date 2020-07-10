@@ -1,0 +1,33 @@
+{%extends 'base.html'%}
+{%block title%}Tasks{%endblock%}
+{%block content%}
+
+
+<h3>{{obj.item}} - {{obj.created}}<br>
+    <br>
+    <br>
+{{obj.comments}}<br>
+    <br>
+    <br>
+</h3>
+<h5>{%if obj.deadline == '' %}
+
+You didn't set any deadline for this task</h5>
+{%else%}
+deadline: {{obj.deadline}}
+{%endif%}
+<br>
+<br>
+
+<h5>
+    <a href="../../../list/delete/{{obj.id}}"><button type="submit" class="btn btn-danger">DELETE</button></a>
+</h5>
+
+
+
+<a href="../../../list/update/{{obj.id}}"><button value="Update" class="btn btn-primary">Update</button></a>
+
+
+
+{%endblock%}
+
