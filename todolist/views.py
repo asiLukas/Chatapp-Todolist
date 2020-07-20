@@ -3,18 +3,6 @@ from .forms import ToDoForm
 from .models import ToDoList
 
 # Create your views here.
-'''def create_view2(request):
-    form = INTODOForm()
-    if request.method == 'POST':
-        form = INTODOForm(request.POST)
-        if form.is_valid():
-            Items.objects.create(**form.cleaned_data)
-            form = INTODOForm()
-            return redirect('../../../list/')
-    context = {
-        'form': form
-    }
-    return render(request, 'list2/create_list2.html', context)'''
 
 
 def create_view(request):
@@ -56,15 +44,15 @@ def delete_view(request, id):
 
 def update_view(request, id):
     obj = get_object_or_404(ToDoList, id=id)
-    context = {}
-    if obj is not None:
-        form = ToDoForm(request.POST, instance=obj)
-        context['object'] = obj
-        context['form'] = form
-        if form.is_valid():
-            form.save()
-            return redirect('../../../list/')
+    context = {'obj': obj}
 
+    form = ToDoForm(request.POST or None, instance=obj)
+
+    if form.is_valid():
+        form.save()
+        return redirect('../../../list/')
+
+    context['form'] = form
     return render(request, 'list/update_list.html', context)
 
 
