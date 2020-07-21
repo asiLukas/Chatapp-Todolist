@@ -1,4 +1,4 @@
-#Chatapp-Todolist
+# Chatapp-Todolist
 
 In order to run this project, you need to have docker installed on your system.
 
