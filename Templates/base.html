@@ -51,13 +51,8 @@
         right: 5px;
         z-index: 1}
 
-        .not_logged_in {
-        color: white;
-        padding-top: 60px;
-        position: fixed;
-        up: 0;
-        right: 40%;
-        z-index: 1}
+        #not_logged_in {
+        font-size: 30px}
 
 
         form {
@@ -107,9 +102,6 @@
 </head>
 <body>
 {%include 'navbar.html'%}
-{%if user.is_authenticated%}
-
-      <p class="logged_in">You are logged in as {{user}}</p>
    <div id="content" name="content" class="main">
       <div class="row justify-content-center">
           <div class="col-8">
@@ -118,6 +110,8 @@
               <br>
               <br>
                <hr class="mt-0 mb-4=">
+               {%if user.is_authenticated%}
+               <p class="logged_in">You are logged in as {{user}}</p>
                {%block content%}
                replace this
                {%endblock%}
@@ -125,7 +119,7 @@
        </div>
    </div>
 {%else%}
-       <p class="not_logged_in">The site works only if you're logged in, you need to login <a href="../../../login/login">here</a></p>
+<h2>The site works only if you're logged in, you need to login <a href="../../../login/login" id="not_logged_in">here</a></h2>
 <br>
 <br>
 <br>

@@ -19,6 +19,7 @@ class ToDoList(models.Model):
     def get_absolute_url(self):
         return reverse('todolist:detail_list', kwargs={'id': self.id})
 
+
 '''class Items(models.Model):
     todolsdfist = models.ForeignKey(ToDoList, on_delete=models.CASCADE, default=20)
     todo = models.CharField(max_length=100)

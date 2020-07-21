@@ -12,7 +12,6 @@ def create_view(request):
         form = ToDoForm(request.POST)
         if form.is_valid():
             ToDoList.objects.create(**form.cleaned_data)
-            form = ToDoForm()
             return redirect('../../list')
 
     context = {

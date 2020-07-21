@@ -14,5 +14,5 @@ def register_view(request):
             return redirect('/../../login/login')
     context = {
         'form': form}
-    return render(request, 'logins/login.html', context)
+    return render(request, 'registration/register.html', context)
 
